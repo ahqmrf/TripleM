@@ -12,4 +12,5 @@ public final class Util {
     public static final String USER_PROFILE_PIC_PATH = "_pp_path";
     public static final String QUOTE = "__quote";
     public static final int GALLERY_BROWSE_REQ_CODE = 101;
+    public static final int PERMISSION_READ_EXTERNAL_STORAGE_REQ_CODE = 102;
 }

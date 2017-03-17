@@ -33,7 +33,7 @@ public class SplashActivity extends Activity {
         intent = new Intent(getApplicationContext(), GetStartedActivity.class);
         SharedPreferences preferences = getSharedPreferences(Util.SHARED_PREFERENCE_NAME, Context.MODE_PRIVATE);
         if(preferences.contains(Util.FIRST_INSTALLATION)) {
-            //intent = new Intent(getApplicationContext(), HomeActivity.class);
+            intent = new Intent(getApplicationContext(), HomeActivity.class);
         }
         new Handler().postDelayed(new Runnable() {
             @Override

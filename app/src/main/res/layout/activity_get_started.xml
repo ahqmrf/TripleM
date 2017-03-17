@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:id="@+id/activity_get_started"
     tools:context="apps.ahqmrf.triplem.activity.GetStartedActivity">
 
     <LinearLayout
@@ -16,7 +17,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Tell us who you are"
-            android:textSize="16sp" />
+            android:textSize="14sp" />
 
         <EditText
             android:id="@+id/name"
@@ -31,11 +32,21 @@
             tools:text="Ariful Hoque Maruf" />
 
         <TextView
+            android:id="@+id/warn_name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
+            android:textColor="@color/red"
+            android:layout_marginLeft="4dp"
+            android:layout_marginTop="4dp"
+            android:visibility="gone"
+            android:text="Name is required"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="14dp"
             android:text="Enter your bio"
-            android:textSize="16sp" />
+            android:textSize="14sp" />
 
         <EditText
             android:id="@+id/quote"
@@ -53,11 +64,21 @@
             tools:text="I am so lonely" />
 
         <TextView
+            android:id="@+id/warn_quote"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
+            android:textColor="@color/red"
+            android:layout_marginLeft="4dp"
+            android:layout_marginTop="4dp"
+            android:visibility="gone"
+            android:text="Write something about yourself"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="14sp"
             android:text="Select an image as profile photo"
-            android:textSize="16sp" />
+            android:textSize="14sp" />
 
 
 
@@ -68,6 +89,17 @@
             android:layout_marginTop="16dp"
             android:clickable="true"
             android:src="@drawable/unavailable_photo" />
+
+        <TextView
+            android:id="@+id/warn_photo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/red"
+            android:layout_marginLeft="4dp"
+            android:layout_marginTop="4dp"
+            android:gravity="center"
+            android:visibility="gone"
+            android:text="You did not select any photo"/>
 
         <Button
             android:id="@+id/btn_start"
