@@ -1,6 +1,7 @@
 package apps.ahqmrf.triplem.activity;
 
 import android.Manifest;
+import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
@@ -16,8 +17,11 @@ import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.MotionEvent;
 import android.view.View;
+import android.view.ViewGroup;
 import android.view.WindowManager;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -68,6 +72,7 @@ public class GetStartedActivity extends AppCompatActivity implements View.OnClic
         mStart.setOnClickListener(this);
         mProfilePhoto = (CircleImageView) findViewById(R.id.profile_photo);
         mProfilePhoto.setOnClickListener(this);
+        setupUI(findViewById(R.id.activity_get_started));
     }
 
     private void makeNextLaunchDisable() {
@@ -224,5 +229,34 @@ public class GetStartedActivity extends AppCompatActivity implements View.OnClic
     private void showSnackbar(String message) {
         Snackbar snackbar = Snackbar.make(parentLayout, message, Snackbar.LENGTH_SHORT);
         snackbar.show();
+    }
+
+    public static void hideSoftKeyboard(Activity activity) {
+        InputMethodManager inputMethodManager =
+                (InputMethodManager) activity.getSystemService(
+                        Activity.INPUT_METHOD_SERVICE);
+        inputMethodManager.hideSoftInputFromWindow(
+                activity.getCurrentFocus().getWindowToken(), 0);
+    }
+
+    public void setupUI(View view) {
+
+        // Set up touch listener for non-text box views to hide keyboard.
+        if (!(view instanceof EditText)) {
+            view.setOnTouchListener(new View.OnTouchListener() {
+                public boolean onTouch(View v, MotionEvent event) {
+                    hideSoftKeyboard(GetStartedActivity.this);
+                    return false;
+                }
+            });
+        }
+
+        //If a layout container, iterate over children and seed recursion.
+        if (view instanceof ViewGroup) {
+            for (int i = 0; i < ((ViewGroup) view).getChildCount(); i++) {
+                View innerView = ((ViewGroup) view).getChildAt(i);
+                setupUI(innerView);
+            }
+        }
     }
 }

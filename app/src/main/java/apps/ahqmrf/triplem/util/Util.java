@@ -13,4 +13,5 @@ public final class Util {
     public static final String QUOTE = "__quote";
     public static final int GALLERY_BROWSE_REQ_CODE = 101;
     public static final int PERMISSION_READ_EXTERNAL_STORAGE_REQ_CODE = 102;
+
 }

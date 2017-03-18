@@ -1,35 +1,36 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_create_memory"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:id="@+id/activity_get_started"
-    tools:context="apps.ahqmrf.triplem.activity.GetStartedActivity">
+    android:fillViewport="true"
+    android:padding="16dp"
+    tools:context="apps.ahqmrf.triplem.activity.CreateMemoryActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:gravity="center"
-        android:orientation="vertical"
-        android:padding="32dp">
+        android:orientation="vertical">
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Tell us who you are"
-            android:textSize="14sp" />
+            android:textSize="14sp"
+            android:text="Recall memory as:"/>
 
         <EditText
-            android:id="@+id/name"
+            android:id="@+id/edit_memory_name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
-            android:background="@drawable/curved_border"
+            android:background="@drawable/border"
             android:inputType="textAutoComplete"
             android:padding="8dp"
             android:textColor="@color/colorPrimary"
             android:textSize="14sp"
-            tools:text="Ariful Hoque Maruf" />
+            tools:text="She wore sharee!!!" />
 
         <TextView
             android:id="@+id/warn_name"
@@ -39,56 +40,71 @@
             android:layout_marginLeft="4dp"
             android:layout_marginTop="4dp"
             android:visibility="gone"
-            android:text="Name is required"/>
+            android:text="Field required"/>
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:textSize="14sp"
             android:layout_marginTop="14dp"
-            android:text="Enter your bio"
-            android:textSize="14sp" />
+            android:text="Write how you want to remember this memory:"/>
 
         <EditText
-            android:id="@+id/quote"
+            android:id="@+id/edit_memory_description"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
-            android:background="@drawable/curved_border"
-            android:gravity="top|start"
+            android:background="@drawable/border"
             android:inputType="textMultiLine"
-            android:maxLines="4"
-            android:minLines="1"
+            android:minLines="2"
+            android:maxLines="6"
+            android:gravity="top|start"
             android:padding="8dp"
             android:textColor="@color/colorPrimary"
             android:textSize="14sp"
-            tools:text="I am so lonely" />
+            tools:text="Something about this memory should be written here" />
 
         <TextView
-            android:id="@+id/warn_quote"
+            android:id="@+id/warn_description"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textColor="@color/red"
             android:layout_marginLeft="4dp"
             android:layout_marginTop="4dp"
             android:visibility="gone"
-            android:text="Write something about yourself"/>
+            android:text="Please fill up this field"/>
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:textSize="14sp"
+            android:layout_marginTop="14dp"
+            android:text="Click Choose to set an icon for this memory:"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:layout_marginTop="14sp"
-            android:text="Select an image as profile photo"
-            android:textSize="14sp" />
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
 
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/image_memory_icon"
+                android:layout_width="160dp"
+                android:layout_height="160dp"
+                android:src="@drawable/ic_crop_original"/>
 
+            <Button
+                android:id="@+id/btn_choose"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/button_bg"
+                android:text="Choose"
+                android:textAllCaps="false"
+                android:textColor="@color/white"
+                android:textSize="16sp"/>
 
-        <de.hdodenhof.circleimageview.CircleImageView
-            android:id="@+id/profile_photo"
-            android:layout_width="160dp"
-            android:layout_height="160dp"
-            android:layout_marginTop="16dp"
-            android:clickable="true"
-            android:src="@drawable/unavailable_photo" />
+        </LinearLayout>
 
         <TextView
             android:id="@+id/warn_photo"
@@ -97,20 +113,21 @@
             android:textColor="@color/red"
             android:layout_marginLeft="4dp"
             android:layout_marginTop="4dp"
-            android:gravity="center"
             android:visibility="gone"
-            android:text="You did not select any photo"/>
+            android:gravity="center"
+            android:text="You did not choose any photo"/>
 
         <Button
-            android:id="@+id/btn_start"
-            android:layout_width="160dp"
-            android:layout_height="wrap_content"
+            android:id="@+id/btn_next"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
             android:layout_marginTop="24dp"
             android:background="@drawable/button_bg"
-            android:text="Start"
+            android:text="Next >>"
             android:textAllCaps="false"
             android:textColor="@color/white"
             android:textSize="16sp" />
+
     </LinearLayout>
 
 </ScrollView>
